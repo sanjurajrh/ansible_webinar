@@ -1,15 +1,6 @@
 ---
 - name: Using the vars_prompt
   hosts: all
-  vars_prompt:
-    - name: my_package
-      prompt: "Which package do you want to take the action? "
-      default: telnet
-      private: no
-    - name: my_action
-      prompt: "Which action do you want to perform? Please choose installed or latest or present or absent "
-      default: installed
-      private: no
   tasks:
     - name: Perform the following {{ my_action }} on {{ my_package }}
       ansible.builtin.dnf:
