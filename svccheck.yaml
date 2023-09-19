@@ -1,0 +1,11 @@
+---
+- name: Trigger the service
+  host: all
+  become: true
+  tasks:
+    - name: Update the service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
+...
