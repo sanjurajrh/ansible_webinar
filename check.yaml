@@ -6,6 +6,16 @@
     - name: Check the package
       ansible.builtin.command: rpm -qa httpd
       register: pkg_status
+    - name: Print the pkg is installed
+      ansible.builtin.debug:
+        msg: "Package exists"
+      when: pkg_status['stdout'] != ""
+
+    - name: Install the pkg if not present
+      when: pkg_status.stdout is defined
+      ansible.builtin.dnf:
+        name: httpd
+        state: latest
     - name: Print the package status
       debug:
         var: pkg_status
