@@ -1,0 +1,10 @@
+---
+- name: Install the package
+  hosts: all
+  become: true
+  tasks:
+    - name: Install the required package
+      ansible.builtin.dnf:
+        name: httpd
+        state: latest
+...
