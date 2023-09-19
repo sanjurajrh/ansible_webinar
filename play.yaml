@@ -7,4 +7,9 @@
         name: "{{ my_package }}"
         state: "{{ my_action }}"
       register: pkg_status
+    - name: Update the service
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
+        enabled: true
 ...
