@@ -2,11 +2,6 @@
 - name: Using the vars_prompt
   hosts: all
   tasks:
-    - name: Perform the following {{ my_action }} on {{ my_package }}
-      ansible.builtin.dnf:
-        name: "{{ my_package }}"
-        state: "{{ my_action }}"
-      register: pkg_status
     - name: Update the service
       ansible.builtin.service:
         name: httpd
