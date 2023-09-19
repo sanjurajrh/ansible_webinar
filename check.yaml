@@ -1,0 +1,12 @@
+---
+- name: Check the package exists
+  hosts: all
+  become: true
+  tasks:
+    - name: Check the package
+      ansible.builtin.command:
+          cmd: rpm -qa httpd
+      register: pkg_status
+    - name: Print the package status
+      debug:
+        var: pkg_status
