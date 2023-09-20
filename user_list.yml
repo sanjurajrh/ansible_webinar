@@ -3,3 +3,5 @@ users:
     uid: 3001
   - name: bob
     uid: 3002
+  - name: dave
+    uid: 3003
