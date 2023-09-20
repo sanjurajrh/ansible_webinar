@@ -5,3 +5,5 @@ users:
     uid: 3002
   - name: dave
     uid: 3003
+  - name: eve
+    uid: kelvin
