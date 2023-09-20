@@ -3,7 +3,7 @@
   hosts: all
   become: true
   vars_files:
-    - userinfo.yml
+    - user_list.yml
   tasks:
     - name: Create the user as per data
       loop: "{{ users }}"
