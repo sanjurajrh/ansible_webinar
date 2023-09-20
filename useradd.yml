@@ -2,13 +2,15 @@
 - name: Create the user {{ myuser }}
   hosts: all
   become: true
+  vars:
+    upassword: redhat123
   tasks:
     - name: Create the user 
       ansible.builtin.user:
         name: "{{ myuser }}"
         state: present
         create_home: true
-        password: {{ upassword | password_hash('sha512') }}
+        password: "{{ upassword | password_hash('sha512') }}"
         shell: /bin/bash
         uid: 20001
         update_password: on_create
