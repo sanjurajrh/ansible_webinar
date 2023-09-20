@@ -1,0 +1,13 @@
+---
+- name: Create the user with specific uids
+  hosts: all
+  become: true
+  vars_files:
+    - userinfo.yml
+  tasks:
+    - name: Create the user as per data
+      loop: "{{ users }}"
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        state: present
+        uid: "{{ item.uid }}"
